@@ -1,0 +1,25 @@
+.country-page__main{
+    background-color: white;
+    height: 87vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+
+    .back-button{
+        width: 136px;
+        height: 40px;
+        position: absolute;
+        background-color: white;
+    }
+
+    .country__img{
+        width: 559.71px;
+        height: 483.17px;
+        border-radius: 10px;
+    }
+
+    .country__information{
+        width: 598px;
+        height: 323px;
+    }
+}

@@ -1,0 +1,73 @@
+
+// variables
+
+    $white: #fff;
+    $very-light-grey: #F2F2F2;
+    $very-dark-grey: #111517;
+    $nunito-sans: 'Nunito Sans', sans-serif;
+
+// styles
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: $nunito-sans;
+        color: $very-dark-grey;
+    }
+
+    .main{
+        background-color: $very-light-grey;
+        min-height: 100vh;
+        width: 100%;
+        padding: 60px 80px;
+    }
+
+    // search section
+    .search__section{
+        margin-bottom: 70px;
+        display: flex;
+        justify-content: space-between;
+
+        // searchbar
+        .searchbar{
+            width: 460px;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #fff;
+            padding: 0 20px;
+            border-radius: 5px;
+
+            // icon
+            .ionicon{
+                width: 30px;
+            }
+
+            // input bar
+            input{
+                // padding: 5px 100px 10px 0;
+                height: 50px;
+                width: 500px;
+                outline: none;
+                border: none;
+                font-size: 1rem;
+            }
+        }
+
+        .dropdown{
+            width: 200px;
+            position: relative;
+            background-color: $white;
+
+            .dropdown__list{
+                position: absolute;
+                width: 100%;
+                z-index: 50;
+                list-style-type: none;
+                background-color: white
+            }
+        }
+
+    }
