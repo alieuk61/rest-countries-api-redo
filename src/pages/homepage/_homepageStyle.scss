@@ -61,12 +61,22 @@
             position: relative;
             background-color: $white;
 
+            .dropdown__current{
+                height: 4rem;
+                width: 200px;
+                display: grid;
+                place-items: center;
+                border-radius: 5px;
+
+            }
+
             .dropdown__list{
                 position: absolute;
                 width: 100%;
                 z-index: 50;
                 list-style-type: none;
-                background-color: white
+                background-color: white;
+                border-radius: 5px;
             }
         }
 

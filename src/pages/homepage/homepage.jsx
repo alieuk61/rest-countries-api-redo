@@ -21,7 +21,7 @@ function Homepage() {
     }
 
     fetchData();
-  }, []);;
+  }, []);
 
   return (
     <>

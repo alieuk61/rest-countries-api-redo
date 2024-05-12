@@ -22,7 +22,7 @@ export const MyContextProvider = ({ children }) => {
 
     async function continents () {
         try {
-            let continent = await axios.get()
+            let continent = await axios.get('https://restcountries.com/v3.1/region/')
         } catch (error) {
             console.error(error)
         }
@@ -30,7 +30,10 @@ export const MyContextProvider = ({ children }) => {
 
     async function specificCountry(country) {
         try {
-            let country = await axios.get()
+            let specificcountry = await axios.get(`https://restcountries.com/v3.1/name/${country.toLowerCase()}`)
+            let data = specificcountry.data[0]
+            console.log(data)
+            return data
         } catch (error) {
             console.error(error)
         }
@@ -41,7 +44,8 @@ export const MyContextProvider = ({ children }) => {
      setTheme,
      countries,
      continentSelected,
-     setContinent
+     setContinent,
+     specificCountry
     };
 
     return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
