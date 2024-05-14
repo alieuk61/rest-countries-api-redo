@@ -3,10 +3,12 @@
 display: grid;
 grid-template-columns: repeat(4, auto);
 row-gap: 60px;
+justify-content: space-between;
+
 
 .card{
     width: 264px;
-    height: 335px;
+    height: 336px;
     display: grid;
     grid-template-rows: 50% 50%;
     cursor: pointer;

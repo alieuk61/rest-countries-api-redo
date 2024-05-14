@@ -20,7 +20,7 @@ export default function Card(props){
 
                 <p><strong>Population: </strong>{props.country.population}</p>
                 <p><strong>Region: </strong>{props.country.region}</p>
-                {/* <p>{props.country.capital[0]}</p> */}
+                <p><strong>Capital: </strong>{props.country?.capital?.join('')}</p>
             </section>
         </div>
     </Link>

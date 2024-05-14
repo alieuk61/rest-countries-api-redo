@@ -10,8 +10,7 @@ import DropDown from '../../components/search-section/dropdown';
 
 function Homepage() {
   const [count, setCount] = useState(0);
-  const {countries} = useContext(MyContext)
-  const [countryInfo, setCountryInfo] = useState(null); 
+  const { countries, countryInfo, setCountryInfo, inputValue, filteredcountries } = useContext(MyContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,8 +19,23 @@ function Homepage() {
       console.log(data)
     }
 
-    fetchData();
-  }, []);
+    const fetchFilteredData = async () => {
+      try {
+        const response = await filteredcountries(inputValue);
+        const result = await response.data;
+        setCountryInfo(response);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    if (inputValue) {
+      fetchFilteredData();
+    } else {
+      fetchData();
+    }
+
+  }, [inputValue]);
 
   return (
     <>

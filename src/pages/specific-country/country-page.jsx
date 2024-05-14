@@ -53,7 +53,7 @@ export default function CountryPage(){
                     <section>
                         <p><strong>Top Level Domain: </strong>{country?.tld[0]}</p>
                         <p><strong>Currencies: </strong>{}</p>
-                        <p><strong>Languages: </strong>{country ? Object.values(country.languages).join(', ') : null}</p>
+                        <p><strong>Languages: </strong>{country && country.languages ? Object.values(country.languages).join(', ') : null}</p>
                     </section>
                 </div>
                 <div className="border__div">

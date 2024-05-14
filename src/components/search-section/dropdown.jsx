@@ -1,28 +1,41 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { MyContext } from "../../context/context";
 
 // components
-import UpArrowImage from "../../images/up-arrow";
-import DownArrowImage from "../../images/down-arrow";
+import {UpArrowImage} from "src/images/up-arrow";
+import {DownArrowImage} from "src/images/down-arrow";
 
 const DropDown = () => {
     const [isDown, setDown] = useState(false);
-    const {continentSelected, setContinent} = useContext(MyContext);
+    const {continentSelected, setContinent, continents, setCountryInfo} = useContext(MyContext);
     const continentsList = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
+
+    useEffect(() => {
+        const fetchData = async () => {
+          const result = await continents(continentSelected);
+          setCountryInfo(result)
+        }
+
+        if (continentsList.includes(continentSelected)){
+            fetchData()
+        }
+    }, [continentSelected])
 
     return(
         <div className="dropdown">
-            <div className="dropdown__current">
+            <div className="dropdown__current" onClick={() => { setDown(prev => !prev) }}>
                 <section>
                     <p>{continentSelected}</p>
-                    <img src={isDown ? <DownArrowImage /> : <UpArrowImage />} alt="arrow-img" />
+                    {isDown ? <DownArrowImage /> : <UpArrowImage />}
                 </section>
             </div>
 
-            <ul className="dropdown__list">
+            <ul className={`dropdown__list ${isDown ? 'dropdown__down' : null} `}>
                 {continentsList.map((cont, index) => {
                     return(
-                        <li key={index}>{cont}</li>
+                        <li key={index} onClick={() => {
+                            setContinent(cont)
+                        }}>{cont}</li>
                     )
                 })}
             </ul>
